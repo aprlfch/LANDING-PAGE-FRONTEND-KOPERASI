@@ -1,0 +1,40 @@
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  display: flex;
+  flex: 1;
+  position: relative;
+  margin-top: 20px;
+  /* Height of the topbar */
+}
+
+.content {
+  flex: 1;
+  padding: 10px;
+  margin-left: 280px;
+  /* Width of the expanded sidebar */
+  /* background-color: #f3f4f5; */
+  min-height: calc(100vh - 80px);
+  transition: margin-left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contentCollapsed {
+  margin-left: 90px;
+  /* Width of the collapsed sidebar */
+}
+
+@media (max-width: 1250px) {
+  .content {
+    min-width: 100%;
+    padding: 16px;
+  }
+
+  .contentCollapsed {
+    margin-left: 90px;
+  }
+}

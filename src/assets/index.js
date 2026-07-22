@@ -1,0 +1,5 @@
+import USER from "./images/user.png";
+import LOGO from "./images/SIMKO.png";
+import LOGOKOPERASI from "./images/logo1.png";
+
+export { USER, LOGO, LOGOKOPERASI };
