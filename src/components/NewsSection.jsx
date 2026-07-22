@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { getNewsList } from "../services/news.service"; // sesuaikan path service kamu
 
 const formatTanggal = (iso) =>
   new Date(iso).toLocaleDateString("id-ID", {
@@ -15,11 +16,10 @@ export default function NewsSection() {
     let active = true;
     async function loadNews() {
       try {
-        const res = await fetch("/api/news?limit=3");
-        if (!res.ok) throw new Error("Gagal memuat berita");
-        const json = await res.json();
+        const res = await getNewsList({ page: 1, limit: 3, status: "published" });
+        const items = res?.data?.data ?? [];
         if (active) {
-          setNews(json.data);
+          setNews(items);
           setStatus("success");
         }
       } catch (err) {
@@ -56,16 +56,26 @@ export default function NewsSection() {
           </p>
         )}
 
-        {status === "success" && (
+        {status === "success" && news.length === 0 && (
+          <p className="berita__empty">Belum ada berita yang dipublikasikan.</p>
+        )}
+
+        {status === "success" && news.length > 0 && (
           <div className="berita__grid">
             {news.map((item) => (
               <article className="berita-card" key={item.id}>
-                <span className="berita-card__kategori">{item.kategori}</span>
-                <h3>{item.judul}</h3>
-                <p>{item.ringkasan}</p>
+                <span className="berita-card__kategori">
+                  {item.category?.name || "Umum"}
+                </span>
+                <h3>{item.title}</h3>
+                <p>{item.excerpt}</p>
                 <div className="berita-card__footer">
-                  <time>{formatTanggal(item.tanggal)}</time>
-                  <a href="#" className="berita-card__link">Baca Selengkapnya →</a>
+                  <time>
+                    {formatTanggal(item.publishedAt || item.createdAt)}
+                  </time>
+                  <a href={`/berita/${item.slug}`} className="berita-card__link">
+                    Baca Selengkapnya →
+                  </a>
                 </div>
               </article>
             ))}
