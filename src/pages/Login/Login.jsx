@@ -124,7 +124,7 @@ function Login() {
                         <div className={styles.logoSection}>
                             <img
                                 src={LOGO}
-                                alt="SIMKO"
+                                alt="KOPERASI-KIE"
                                 className={styles.logo}
                             />
 
@@ -251,7 +251,7 @@ function Login() {
 
                         {/* <div className={styles.formFooter}>
                             <span className={styles.copyright}>
-                                © {new Date().getFullYear()} SIMKO. All rights
+                                © {new Date().getFullYear()} KOPERASI-KIE. All rights
                                 reserved.
                                 <br />
                                 Developed with ❤️ by{' '}
