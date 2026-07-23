@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getNewsList } from "../services/news.service"; // sesuaikan path service kamu
+import { getPublicNewsList } from "../services/news.service"; // sesuaikan path service kamu
 
 const formatTanggal = (iso) =>
   new Date(iso).toLocaleDateString("id-ID", {
@@ -16,8 +16,11 @@ export default function NewsSection() {
     let active = true;
     async function loadNews() {
       try {
-        const res = await getNewsList({ page: 1, limit: 3, status: "published" });
-        const items = res?.data?.data ?? [];
+        const res = await getPublicNewsList({ page: 1, limit: 3 });
+        // Struktur response: { status, data: { data: [...], pagination } }
+        // axios membungkus sekali lagi jadi res.data, jadi array-nya
+        // ada di res.data.data.data — bukan res.data.data.
+        const items = res?.data?.data?.data ?? [];
         if (active) {
           setNews(items);
           setStatus("success");
