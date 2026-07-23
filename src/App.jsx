@@ -15,6 +15,7 @@ import SimulasiCalculator from "./components/SimulasiCalculator.jsx";
 import Testimonials from "./components/Testimonials.jsx";
 import NewsSection from "./components/NewsSection.jsx";
 import Footer from "./components/Footer.jsx";
+import NewsDetail from './components/NewsDetail.jsx';
 
 // Import halaman menggunakan lazy loading
 const Login = lazy(() => import('./pages/Login/Login'));
@@ -39,12 +40,27 @@ const LandingPage = () => {
   );
 };
 
+// Wrapper untuk halaman detail berita, biar Navbar & Footer tetap konsisten
+const NewsDetailPage = () => {
+  return (
+    <>
+      <Navbar />
+      <main>
+        <NewsDetail />
+      </main>
+      <Footer />
+    </>
+  );
+};
+
 function App() {
   const { getMe } = React.useContext(ProfileContext);
 
   const routes = [
     // Panggil LandingPage di dalam PublicRoute untuk path '/'
     { path: '/', element: <PublicRoute><LandingPage /></PublicRoute> },
+    // Halaman detail berita, publik, tanpa wrapper PublicRoute/PrivateRoute
+    { path: '/berita/:slug', element: <NewsDetail /> },
     { path: '/home', element: <PrivateRoute><Home /></PrivateRoute> },
     { path: '/error-403', element: <ErrorPage title='403' subTitle='Sorry, you cannot access this page!' /> },
     { path: '*', element: <ErrorPage title='404' subTitle='Sorry, the page you visited does not exist.' /> },
