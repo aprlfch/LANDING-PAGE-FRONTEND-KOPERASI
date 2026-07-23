@@ -76,7 +76,9 @@ export const updateNews = (id, data, thumbnail = null) => {
   );
 };
 
-// ─── LIST ────────────────────────────────────────────────────────────────
+// ─── LIST — ADMIN ──────────────────────────────────────────────────────
+// Butuh login. Bisa lihat semua status (draft/published/archived).
+// Dipakai di halaman manajemen berita (dashboard admin).
 export const getNewsList = ({
   page = 1,
   limit = 20,
@@ -93,8 +95,27 @@ export const getNewsList = ({
   );
 };
 
+// ─── LIST — PUBLIK ────────────────────────────────────────────────────
+// Tanpa login. Hanya mengembalikan berita berstatus "published"
+// (difilter di backend, tidak bisa dioverride dari sini).
+// Dipakai di landing page (NewsSection, dsb).
+export const getPublicNewsList = ({
+  page = 1,
+  limit = 20,
+  search = "",
+  categoryId = "",
+} = {}) => {
+  return axiosConfig(
+    "get",
+    "/v1/news/list-public-news",
+    {
+      params: { page, limit, search, categoryId },
+    }
+  );
+};
+
 // ─── DETAIL BY ID ────────────────────────────────────────────────────────
-// Dipakai untuk keperluan admin (edit form, dsb).
+// Dipakai untuk keperluan admin (edit form, dsb). Butuh login.
 export const getNewsById = (id) => {
   return axiosConfig(
     "get",
@@ -104,6 +125,7 @@ export const getNewsById = (id) => {
 
 // ─── DETAIL BY SLUG ──────────────────────────────────────────────────────
 // Dipakai untuk halaman publik/landing page (otomatis nambah views).
+// Backend memfilter hanya status "published".
 export const getNewsBySlug = (slug) => {
   return axiosConfig(
     "get",
