@@ -10,6 +10,14 @@ const formatTanggal = (iso) =>
     year: "numeric",
   });
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5004";
+
+const getThumbnailUrl = (thumbnail) => {
+  if (!thumbnail) return null;
+  if (thumbnail.startsWith("http")) return thumbnail;
+  return `${API_BASE_URL}${thumbnail}`;
+};
+
 export default function NewsDetail() {
   const { slug } = useParams();
   const [news, setNews] = useState(null);
@@ -75,6 +83,8 @@ export default function NewsDetail() {
     );
   }
 
+  const thumbnailUrl = getThumbnailUrl(news.thumbnail);
+
   return (
     <>
       <section className="section berita-detail">
@@ -90,9 +100,9 @@ export default function NewsDetail() {
             </span>
           </div>
 
-          {news.thumbnail ? (
+          {thumbnailUrl ? (
             <img
-              src={news.thumbnail}
+              src={thumbnailUrl}
               alt={news.title}
               className="berita-detail__thumbnail"
             />
