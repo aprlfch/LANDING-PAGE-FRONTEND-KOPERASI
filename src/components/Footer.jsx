@@ -13,7 +13,7 @@ export default function Footer() {
         <div className="site-footer__brand">
           <img
             src="/logo-kjs.png"
-            alt="Logo PT Kaltim Jasa Sekuriti"
+            alt="Logo Koperasi Karyawan PT KIE"
             className="site-footer__logo"
           />
           <p className="site-footer__social-text">
@@ -37,34 +37,34 @@ export default function Footer() {
 
         {/* KOLOM 2: CONTACT US */}
         <div className="site-footer__col">
-          <h4>Contact us</h4>
+          <h4>Hubungi Kami</h4>
           <div className="site-footer__contacts">
             <div className="contact-item">
               <div className="contact-icon">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
               </div>
-              <p>Wisma KIE Lantai 2 Jl. Paku Aji Kavling 79<br />Kawasan Industri Bontang<br />Telp. 0548-41101</p>
+              <p>Jl. Kapal Induk Raya No 27,<br />Griya Temputu Indah</p>
             </div>
 
-            <a href="mailto:kjs.btg@gmail.com" className="contact-item contact-item--link">
+            <a href="mailto:kopkarkie@yahoo.com" className="contact-item contact-item--link">
               <div className="contact-icon">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
               </div>
-              <span>kjs.btg@gmail.com</span>
+              <span>kopkarkie@yahoo.com</span>
             </a>
 
-            <a href="https://wa.me/6281351279952" target="_blank" rel="noreferrer" className="contact-item contact-item--link">
+            <a href="tel:054841379" className="contact-item contact-item--link">
               <div className="contact-icon">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
               </div>
-              <span>+6281351279952</span>
+              <span>(0548) 41379</span>
             </a>
           </div>
         </div>
 
         {/* KOLOM 3: LOCATION MAP */}
         <div className="site-footer__col">
-          <h4>Location</h4>
+          <h4>Lokasi</h4>
           <div className="site-footer__map">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.8179261452295!2d117.47271961475333!3d0.11652799988220077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x320a0d91242377c9%3A0x6a0c5c4cb0910f13!2sPT.%20Kaltim%20Industrial%20Estate!5e0!3m2!1sen!2sid!4v1689000000000!5m2!1sen!2sid"
@@ -74,7 +74,7 @@ export default function Footer() {
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Lokasi Perusahaan"
+              title="Lokasi Koperasi Karyawan PT KIE"
             ></iframe>
           </div>
         </div>
@@ -83,7 +83,7 @@ export default function Footer() {
       {/* FOOTER BOTTOM */}
       <div className="container">
         <div className="site-footer__bottom">
-          <p>Copyright &copy; {new Date().getFullYear()} . PT. KALTIM JASA SEKURITI . All rights reserved.</p>
+          <p>Copyright &copy; {new Date().getFullYear()} . Koperasi Karyawan PT KIE . All rights reserved.</p>
           <button onClick={scrollToTop} className="site-footer__scroll" aria-label="Kembali ke atas">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
           </button>
