@@ -1,3 +1,5 @@
+import { KOPERASI } from "../assets";
+
 export default function Hero() {
   return (
     <section id="beranda" className="hero">
@@ -23,15 +25,10 @@ export default function Hero() {
 
         <div className="hero__visual" aria-hidden="true">
           <div className="hero__image-wrapper">
-            {/* Ganti src di bawah dengan path gambar gedung aslinya */}
             <img
-              src="/kantor-koperasi.jpg"
+              src={KOPERASI}
               alt="Gedung Kantor Koperasi Karyawan PT KIE"
             />
-            {/* Badge kecil sebagai pemanis (indikator buka/aktif) */}
-            <div className="hero__image-badge">
-              <span className="dot"></span> Kantor Pusat Pelayanan
-            </div>
           </div>
         </div>
       </div>
