@@ -1,7 +1,7 @@
 const STATS = [
-  { value: "5.000+", label: "Anggota Aktif" },
-  { value: "10+", label: "Tahun Beroperasi" },
-  { value: "No. 518/BH/2015", label: "Berbadan Hukum Resmi" },
+  { value: "60+", label: "Anggota Aktif" },
+  { value: "30+", label: "Tahun Beroperasi" },
+  { value: "", label: "Berbadan Hukum Resmi" },
 ];
 
 export default function TrustStats() {
