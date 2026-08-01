@@ -23,6 +23,35 @@
   }
 }
 
+@keyframes float-image {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(1deg);
+  }
+}
+
+@keyframes pulse-dot {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(46, 213, 115, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(46, 213, 115, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(46, 213, 115, 0);
+  }
+}
+
 /* ============ NAVBAR ============ */
 .navbar {
   position: sticky;
@@ -63,14 +92,17 @@
   min-height: 84px;
 }
 
+
 .navbar__logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  /* Jarak yang pas antara logo dan teks */
   font-family: var(--font-display);
   font-size: 1.15rem;
   color: var(--forest-deep);
   transition: transform 0.2s ease;
+  text-decoration: none;
 }
 
 .navbar__logo:hover {
@@ -146,6 +178,33 @@
   background: var(--forest-deep);
   border-radius: 2px;
   transition: all 0.3s ease;
+}
+
+.navbar__logo img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+
+.navbar__logo span {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+@media (max-width: 860px) {
+  .navbar__logo img {
+    height: 36px;
+  }
+
+  .navbar__logo span {
+    font-size: 1rem;
+    /* Ukuran font disesuaikan untuk layar sempit */
+  }
 }
 
 /* --- MOBILE RESPONSIVE NAVBAR --- */
@@ -337,6 +396,73 @@
   filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
 }
 
+/* --- Area Visual Hero --- */
+.hero__visual {
+  max-width: 100%;
+  justify-self: center;
+  position: relative;
+  /* Animasi melayang yang lebih halus untuk gambar kotak */
+  animation: float-image 8s ease-in-out infinite;
+}
+
+/* Membungkus foto dengan bingkai premium */
+.hero__image-wrapper {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  /* Bingkai emas tipis & bayangan gelap agar stand-out di background hijau */
+  border: 4px solid rgba(201, 162, 39, 0.3);
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(201, 162, 39, 0.1);
+  transform: perspective(1000px) rotateY(-5deg);
+  /* Efek 3D tipis menghadap teks */
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    border-color 0.3s ease;
+}
+
+.hero__image-wrapper:hover {
+  transform: perspective(1000px) rotateY(0deg) translateY(-8px);
+  border-color: rgba(201, 162, 39, 0.8);
+}
+
+.hero__image-wrapper img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  /* Memastikan proporsi gambar tetap rapi */
+  object-fit: cover;
+  display: block;
+}
+
+/* Badge melayang di atas foto */
+.hero__image-badge {
+  position: absolute;
+  bottom: 24px;
+  left: -20px;
+  background: rgba(250, 249, 246, 0.95);
+  backdrop-filter: blur(8px);
+  padding: 10px 20px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--forest-deep);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--gold);
+}
+
+.hero__image-badge .dot {
+  width: 10px;
+  height: 10px;
+  background-color: #2ed573;
+  /* Warna hijau indikator aktif/buka */
+  border-radius: 50%;
+  animation: pulse-dot 2s infinite;
+}
+
 @media (max-width: 900px) {
   .hero {
     padding: 60px 0 80px;
@@ -362,7 +488,21 @@
 
   .hero__visual {
     order: -1;
-    max-width: 80%;
+    /* Memindahkan foto ke atas teks di versi HP */
+    max-width: 90%;
+    margin-bottom: 24px;
+  }
+
+  .hero__image-wrapper {
+    transform: none;
+    /* Matikan efek 3D di HP agar tidak aneh */
+  }
+
+  .hero__image-badge {
+    left: 16px;
+    bottom: 16px;
+    font-size: 0.8rem;
+    padding: 8px 16px;
   }
 }
 
@@ -1415,6 +1555,36 @@
   margin-bottom: 32px;
 }
 
+.berita-detail__gallery {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  overflow-x: auto;
+}
+
+.berita-detail__gallery-item {
+  flex: 0 0 auto;
+  width: 72px;
+  height: 72px;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  background: none;
+}
+
+.berita-detail__gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.berita-detail__gallery-item--active {
+  border-color: var(--primary-color, #2563eb);
+}
+
 /* --- Mobile Responsiveness --- */
 @media (max-width: 768px) {
   .berita-detail {
@@ -1434,5 +1604,177 @@
 
   .berita-detail__excerpt {
     padding: 20px;
+  }
+}
+
+/* ============ PENGAWAS (BOARD OF SUPERVISORS) ============ */
+.pengawas {
+  /* Background cream lembut untuk membedakan dari section sebelumnya */
+  background: linear-gradient(180deg, var(--white) 0%, var(--cream) 100%);
+}
+
+.pengawas__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  align-items: flex-end;
+  /* Memastikan kartu sejajar rapi di bawah */
+}
+
+.pengawas-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.pengawas-card:hover {
+  transform: translateY(-12px);
+}
+
+/* --- Foto & Wrapper --- */
+.pengawas-card__image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background: linear-gradient(135deg, var(--sage) 0%, #e0e8df 100%);
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  box-shadow: inset 0 -40px 60px -20px rgba(10, 43, 44, 0.1);
+  padding: 0 16px;
+  /* Ruang agar pundak foto tidak terpotong */
+}
+
+.pengawas-card__image-wrapper img {
+  width: 100%;
+  height: 90%;
+  object-fit: contain;
+  object-position: bottom;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.4s ease;
+}
+
+.pengawas-card:hover .pengawas-card__image-wrapper img {
+  transform: scale(1.05);
+  /* Efek zoom halus saat di hover */
+}
+
+.pengawas-card__placeholder {
+  color: #a4b3ae;
+  margin-bottom: 40px;
+}
+
+/* Pola dekorasi di belakang foto */
+.pengawas-card__pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.2;
+  background-image: radial-gradient(circle, var(--forest) 1px, transparent 1px);
+  background-size: 16px 16px;
+  z-index: 1;
+}
+
+/* --- Papan Nama (Info Box) --- */
+.pengawas-card__info {
+  background: var(--forest-deep);
+  border-radius: var(--radius-m);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: -32px 16px 0;
+  /* Negatif margin agar box naik (overlap) di atas foto */
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 12px 24px -8px rgba(10, 43, 44, 0.4);
+  border: 1px solid rgba(201, 162, 39, 0.1);
+  /* Garis batas tipis */
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.pengawas-card:hover .pengawas-card__info {
+  box-shadow: 0 20px 32px -8px rgba(10, 43, 44, 0.5);
+  border-color: rgba(201, 162, 39, 0.4);
+}
+
+.pengawas-card__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  color: var(--forest-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pengawas-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pengawas-card__text h3 {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--white);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.pengawas-card__role {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--gold-light);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* --- Spesial Untuk KETUA --- */
+/* Membuat kartu ketua (tengah) lebih menonjol */
+.pengawas-card--leader {
+  transform: translateY(-24px);
+  /* Posisinya agak naik sedikit dari awal */
+}
+
+.pengawas-card--leader:hover {
+  transform: translateY(-36px);
+}
+
+.pengawas-card--leader .pengawas-card__image-wrapper {
+  background: linear-gradient(135deg, #e8ece0 0%, #d5dfcb 100%);
+  border: 2px solid rgba(201, 162, 39, 0.3);
+  /* Bingkai emas tipis */
+}
+
+.pengawas-card--leader .pengawas-card__info {
+  background: linear-gradient(to right, var(--forest-deep), #113637);
+  border-bottom: 3px solid var(--gold);
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 900px) {
+  .pengawas__grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .pengawas-card--leader {
+    transform: translateY(0);
+    order: -1;
+    /* Memaksa Ketua tampil paling atas di HP */
+  }
+
+  .pengawas-card--leader:hover {
+    transform: translateY(-12px);
   }
 }
