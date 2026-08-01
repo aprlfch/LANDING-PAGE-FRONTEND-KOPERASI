@@ -12,16 +12,44 @@ const formatTanggal = (iso) =>
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5004";
 
-const getThumbnailUrl = (thumbnail) => {
-  if (!thumbnail) return null;
-  if (thumbnail.startsWith("http")) return thumbnail;
-  return `${API_BASE_URL}${thumbnail}`;
+const resolveUrl = (path) => {
+  if (!path) return null;
+  if (path.startsWith("http")) return path;
+  return `${API_BASE_URL}${path}`;
+};
+
+// Thumbnail dari API bisa berupa:
+// - null
+// - string path tunggal (data lama): "/public/document/news/xxx.jpg"
+// - JSON string array (data baru): "[\"/public/...\",\"/public/...\"]"
+// Fungsi ini menormalkan semua kemungkinan itu jadi array URL yang siap dipakai.
+const parseThumbnails = (thumbnail) => {
+  if (!thumbnail) return [];
+
+  let paths = thumbnail;
+
+  if (typeof thumbnail === "string") {
+    if (thumbnail.trim().startsWith("[")) {
+      try {
+        paths = JSON.parse(thumbnail);
+      } catch {
+        paths = [thumbnail];
+      }
+    } else {
+      paths = [thumbnail];
+    }
+  }
+
+  if (!Array.isArray(paths)) return [];
+
+  return paths.filter(Boolean).map(resolveUrl);
 };
 
 export default function NewsDetail() {
   const { slug } = useParams();
   const [news, setNews] = useState(null);
   const [status, setStatus] = useState("loading");
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
 
   useEffect(() => {
     let active = true;
@@ -33,6 +61,7 @@ export default function NewsDetail() {
         if (active) {
           if (item) {
             setNews(item);
+            setActiveImageIndex(0);
             setStatus("success");
           } else {
             setStatus("error");
@@ -83,7 +112,8 @@ export default function NewsDetail() {
     );
   }
 
-  const thumbnailUrl = getThumbnailUrl(news.thumbnail);
+  const thumbnails = parseThumbnails(news.thumbnail);
+  const activeImage = thumbnails[activeImageIndex] || thumbnails[0] || null;
 
   return (
     <>
@@ -100,15 +130,33 @@ export default function NewsDetail() {
             </span>
           </div>
 
-          {thumbnailUrl ? (
+          {activeImage ? (
             <img
-              src={thumbnailUrl}
+              src={activeImage}
               alt={news.title}
               className="berita-detail__thumbnail"
             />
           ) : (
             <div className="berita-detail__thumbnail berita-detail__thumbnail--placeholder">
               <span>{news.category?.name || "Berita Terbaru"}</span>
+            </div>
+          )}
+
+          {thumbnails.length > 1 && (
+            <div className="berita-detail__gallery">
+              {thumbnails.map((url, index) => (
+                <button
+                  key={url}
+                  type="button"
+                  className={`berita-detail__gallery-item${index === activeImageIndex
+                      ? " berita-detail__gallery-item--active"
+                      : ""
+                    }`}
+                  onClick={() => setActiveImageIndex(index)}
+                >
+                  <img src={url} alt={`${news.title} - gambar ${index + 1}`} />
+                </button>
+              ))}
             </div>
           )}
 

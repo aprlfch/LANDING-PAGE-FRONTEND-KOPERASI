@@ -1,0 +1,368 @@
+/* SuperHomeSecurity.module.css */
+
+.container {
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── HEADER ── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #888;
+  margin-top: 3px;
+}
+
+.fullDayBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #EAF3DE;
+  color: #27500A;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
+/* ── SECTIONS ── */
+.section {
+  margin-bottom: 1.5rem;
+}
+
+.sectionTitle {
+  font-size: 11px;
+  font-weight: 600;
+  color: #aaa;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+/* ── GRIDS ── */
+.grid4 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 1.25rem;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 1.25rem;
+}
+
+@media (max-width: 900px) {
+  .grid4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid3 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid4 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ── METRIC CARDS ── */
+.metricCard {
+  background: #f5f5f3;
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.metricLabel {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 6px;
+}
+
+.metricValue {
+  font-size: 28px;
+  font-weight: 600;
+  color: #111;
+  line-height: 1;
+}
+
+.metricSub {
+  font-size: 11px;
+  color: #bbb;
+  margin-top: 4px;
+}
+
+/* ── CARD ── */
+.card {
+  background: #fff;
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+/* ── SHIFT TYPE PILLS ── */
+.shiftTypePill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.shiftTypePill:last-child {
+  margin-bottom: 0;
+}
+
+.shiftTypeCount {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* ── TODAY ROWS ── */
+.todayRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.07);
+  font-size: 13px;
+  color: #555;
+}
+
+.todayRow:last-of-type {
+  border-bottom: none;
+}
+
+.reminderText {
+  font-size: 12px;
+  color: #e07b00;
+  margin-top: 8px;
+  padding: 6px 10px;
+  background: #FAEEDA;
+  border-radius: 6px;
+}
+
+/* ── BADGES ── */
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.badgePending,
+.badge_pending {
+  background: #FAEEDA;
+  color: #633806;
+}
+
+.badgeSuccess,
+.badge_success {
+  background: #EAF3DE;
+  color: #27500A;
+}
+
+.badge_info {
+  background: #E6F1FB;
+  color: #0C447C;
+}
+
+.badge_danger {
+  background: #FCEBEB;
+  color: #791F1F;
+}
+
+/* ── APPROVAL ROWS ── */
+.approvalRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.07);
+  font-size: 13px;
+  color: #555;
+}
+
+.approvalRow:last-child {
+  border-bottom: none;
+}
+
+/* ── LOCATION BAR ── */
+.locRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 0;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.06);
+  font-size: 13px;
+}
+
+.locRow:last-child {
+  border-bottom: none;
+}
+
+.locName {
+  width: 100px;
+  color: #777;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.locBarWrap {
+  flex: 1;
+  background: #f0f0ee;
+  border-radius: 999px;
+  height: 5px;
+}
+
+.locBar {
+  height: 5px;
+  border-radius: 999px;
+  background: #1D9E75;
+  min-width: 4px;
+}
+
+.locCount {
+  width: 28px;
+  text-align: right;
+  font-weight: 600;
+  color: #222;
+  font-size: 13px;
+}
+
+/* ── HEATMAP ── */
+.heatmapCard {
+  margin-bottom: 1.25rem;
+}
+
+.heatmapScroll {
+  overflow-x: auto;
+}
+
+.heatmapGrid {
+  display: grid;
+  grid-template-columns: 32px repeat(24, 22px);
+  gap: 3px;
+  min-width: 620px;
+}
+
+.hourLabel {
+  width: 22px;
+  height: 16px;
+  font-size: 9px;
+  color: #bbb;
+  text-align: center;
+  line-height: 16px;
+}
+
+.dayLabel {
+  font-size: 10px;
+  color: #aaa;
+  text-align: right;
+  padding-right: 5px;
+  line-height: 22px;
+}
+
+.heatCell {
+  width: 22px;
+  height: 22px;
+  border-radius: 3px;
+}
+
+.heatLegend {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+  font-size: 11px;
+  color: #aaa;
+}
+
+.heatLegendDot {
+  width: 13px;
+  height: 13px;
+  border-radius: 2px;
+}
+
+/* ── LATEST SHIFTS TABLE ── */
+.shiftRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.07);
+  font-size: 13px;
+}
+
+.shiftRow:last-child {
+  border-bottom: none;
+}
+
+.shiftTypeBadge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  min-width: 56px;
+  text-align: center;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.shiftInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.shiftInfo p {
+  font-weight: 500;
+  color: #222;
+  margin: 0 0 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shiftInfo span {
+  font-size: 11px;
+  color: #aaa;
+}

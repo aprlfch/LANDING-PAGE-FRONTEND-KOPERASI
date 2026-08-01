@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { LOGOKOPERASI } from "../assets";
 
 const LINKS = [
   { href: "#beranda", label: "Beranda" },
@@ -21,17 +23,7 @@ export default function Navbar() {
     <header className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}>
       <div className="container navbar__inner">
         <a href="#beranda" className="navbar__logo">
-          <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
-            <circle cx="17" cy="17" r="17" fill="#0F3D3E" />
-            <path
-              d="M10 22V12l7 5 7-5v10"
-              stroke="#C9A227"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              fill="none"
-            />
-          </svg>
+          <img src={LOGOKOPERASI} alt="LOGO KOPERASI" />
           <span>
             Koperasi <strong>Karyawan PT KIE</strong>
           </span>
@@ -44,13 +36,17 @@ export default function Navbar() {
             </a>
           ))}
           <div className="navbar__actions navbar__actions--mobile">
-            <a href="#masuk" className="btn btn-outline">Masuk</a>
+            <Link to="/login" className="btn btn-outline">
+              Masuk
+            </Link>
             <a href="#daftar" className="btn btn-primary">Daftar Anggota</a>
           </div>
         </nav>
 
         <div className="navbar__actions">
-          <a href="#masuk" className="btn btn-outline">Masuk</a>
+          <Link to="/login" className="btn btn-outline">
+            Masuk
+          </Link>
           <a href="#daftar" className="btn btn-primary">Daftar Anggota</a>
         </div>
 

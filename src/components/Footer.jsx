@@ -1,4 +1,5 @@
 import React from "react";
+import { LOGOKOPERASI } from "../assets";
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -12,7 +13,7 @@ export default function Footer() {
         {/* KOLOM 1: BRAND & SOCIAL MEDIA */}
         <div className="site-footer__brand">
           <img
-            src="/logo-kjs.png"
+            src={LOGOKOPERASI}
             alt="Logo Koperasi Karyawan PT KIE"
             className="site-footer__logo"
           />

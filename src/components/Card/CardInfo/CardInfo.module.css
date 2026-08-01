@@ -1,0 +1,41 @@
+.wrapper {
+  width: 145px;
+  height: 125px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 4px 0px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  border-top-width: 5px;
+  border-style: solid;
+}
+
+.section {
+  padding: 12px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.infoText {
+  font-size: 16px;
+  color: rgb(51, 51, 51);
+  line-height: 18px;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.valueText {
+  font-size: 22px;
+  font-weight: 500;
+  color: #333;
+  margin-top: 24px;
+  line-height: 0px;
+}

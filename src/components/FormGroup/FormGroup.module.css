@@ -1,0 +1,8 @@
+.formGroup {
+  width: 450px;
+  border-radius: 8px;
+  margin: 16px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

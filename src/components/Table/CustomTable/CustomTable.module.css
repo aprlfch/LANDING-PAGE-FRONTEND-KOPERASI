@@ -1,0 +1,71 @@
+.customTableContainer {
+    width: 100%;
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+/* Warna zebra row */
+.evenRow {
+    background-color: #ffffff;
+}
+
+.oddRow {
+    background-color: #f9fafb;
+}
+
+.customTable :global(.ant-table-cell) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.wrapText {
+    white-space: normal !important;
+    word-break: break-word;
+}
+
+.customTableContainer {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.customTable :global(.ant-table) {
+    width: 100% !important;
+}
+
+
+
+.customTable {
+    width: 100% !important;
+}
+
+.customTable :global(.ant-table-wrapper) {
+    width: 100% !important;
+}
+
+/* Mobile-friendly tweaks */
+@media (max-width: 768px) {
+    .customTable :global(.ant-table) {
+        font-size: 13px;
+    }
+
+    .customTable :global(.ant-table-cell) {
+        padding: 6px 8px !important;
+        white-space: nowrap;
+    }
+
+    .customPagination {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .customTable :global(.ant-table) {
+        font-size: 12px;
+    }
+
+    .customTable :global(.ant-table-cell) {
+        padding: 4px 6px !important;
+    }
+}

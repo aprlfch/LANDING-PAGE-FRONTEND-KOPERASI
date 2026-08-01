@@ -1,0 +1,26 @@
+.paper {
+  width: 215mm;
+  min-height: 330mm;
+  margin: 16px auto;
+  padding: 10mm 12mm;
+  background: #fff;
+  box-sizing: border-box;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+}
+
+@media print {
+  .paper {
+    width: 215mm !important;
+    height: 330mm !important;
+    min-height: unset !important;
+    max-height: 330mm !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 10mm 12mm !important;
+    box-shadow: none !important;
+    border: none !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+}

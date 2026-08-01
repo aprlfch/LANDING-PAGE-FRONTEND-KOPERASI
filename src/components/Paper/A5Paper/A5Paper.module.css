@@ -1,0 +1,47 @@
+.paper {
+  width: 210mm; 
+  height: 148mm; 
+  margin: 16px auto;
+  padding: 10mm 15mm;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.downloadMode {
+  box-shadow: none;
+  border: none;
+  margin: 0;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #777;
+}
+
+@media print {
+  .paper {
+    page-break-after: avoid; /* Memastikan elemen baru muncul di halaman baru jika perlu */
+    break-inside: avoid; /* Menghindari pemotongan elemen di tengah halaman */
+  }
+
+  .content {
+    page-break-inside: avoid; /* Menghindari pemotongan teks di tengah */
+  }
+
+  .pageBreak {
+    page-break-before: always;
+  }
+}

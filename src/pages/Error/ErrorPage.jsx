@@ -10,7 +10,7 @@ function ErrorPage({ title, subTitle }) {
                 status={title}
                 title={title}
                 subTitle={subTitle}
-                extra={<Button onClick={() => navigate('/')} type="primary">Back Home</Button>}
+                extra={<Button onClick={() => navigate('/home')} type="primary">Back Home</Button>}
             />
         </div>
     )

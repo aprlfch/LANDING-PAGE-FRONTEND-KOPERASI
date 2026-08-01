@@ -1,0 +1,7 @@
+.info {
+  margin: 8px 0px;
+}
+
+.infoText:nth-child(2) {
+  color: red;
+}

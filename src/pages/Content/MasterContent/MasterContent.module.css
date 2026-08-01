@@ -1,0 +1,172 @@
+.dashboard-layout {
+    background-color: #f8fafc;
+    min-height: 100vh;
+}
+
+/* Header Styles */
+.header-layout {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    color: white;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.header-layout h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Container Layout */
+.container-layout {
+    padding: 2rem;
+    max-width: 100%;
+}
+
+/* Card Section */
+.card-section {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Menu Container */
+.menu-container-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* Search Input */
+.ant-input-search-large {
+    border-radius: 8px !important;
+    border: 1px solid #e2e8f0 !important;
+    transition: all 0.3s ease;
+}
+
+.ant-input-search-large:hover {
+    border-color: #93c5fd !important;
+}
+
+.ant-input-search-large:focus {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2) !important;
+}
+
+/* New Button Styles */
+.btnBlue {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+    border: none !important;
+    border-radius: 8px !important;
+    color: white !important;
+    font-weight: 500 !important;
+    text-shadow: none !important;
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3),
+        0 2px 4px -1px rgba(59, 130, 246, 0.1) !important;
+    transition: all 0.3s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+}
+
+.btnBlue:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3),
+        0 4px 6px -2px rgba(59, 130, 246, 0.1) !important;
+}
+
+.btnBlue:active {
+    transform: translateY(0) !important;
+}
+
+.btnBlue .anticon {
+    font-size: 1rem !important;
+}
+
+/* Table Styles */
+.custom-table {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.custom-table .ant-table {
+    border-radius: 8px !important;
+}
+
+.custom-table .ant-table-thead>tr>th {
+    background-color: #f1f5f9 !important;
+    color: #334155 !important;
+    font-weight: 600 !important;
+    border-bottom: 2px solid #e2e8f0 !important;
+}
+
+.custom-table .ant-table-tbody>tr>td {
+    border-bottom: 1px solid #f1f5f9 !important;
+}
+
+.custom-table .ant-table-tbody>tr:hover>td {
+    background-color: #f8fafc !important;
+}
+
+/* Modal Styles */
+.store-master-modal .ant-modal-content {
+    border-radius: 12px !important;
+    overflow: hidden;
+}
+
+.store-master-modal .ant-modal-header {
+    background-color: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.store-master-modal .ant-modal-title {
+    color: #1e293b;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .ant-input-search-large {
+        width: 100% !important;
+    }
+
+    .menu-container-layout {
+        flex-direction: column;
+        align-items: stretch;
+        /* biar button full width */
+    }
+
+    .menu-container-layout button {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+
+    .btnBlue {
+        font-size: 0.9rem !important;
+        padding: 0.75rem 1rem !important;
+    }
+}
+
+.actionWrapper {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+    .btnBlue {
+        font-size: 0.85rem !important;
+        padding: 0.6rem 0.8rem !important;
+    }
+
+    .menu-container-layout button {
+        margin-bottom: 0.5rem;
+    }
+}

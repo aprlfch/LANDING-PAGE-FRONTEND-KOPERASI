@@ -1,0 +1,232 @@
+.wrapper {
+  width: 280px;
+  min-height: calc(100vh - 80px);
+  overflow-y: auto;
+  position: fixed;
+  z-index: 10;
+  top: 80px;
+  left: 0;
+  background: #ffffff;
+  box-shadow: 5px 0 25px rgba(0, 0, 0, 0.08);
+  padding: 25px 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-right: 1px solid #f0f0f0;
+}
+
+.wrapperClose {
+  width: 90px;
+  min-height: calc(100vh - 80px);
+  overflow-y: auto;
+  position: fixed;
+  z-index: 10;
+  top: 80px;
+  left: 0;
+  background: #ffffff;
+  box-shadow: 5px 0 25px rgba(0, 0, 0, 0.08);
+  padding: 25px 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-right: 1px solid #f0f0f0;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: calc(100vh - 130px);
+}
+
+.sidebarContainer {
+  flex: 1;
+  padding: 0 15px;
+}
+
+.sidebarItem {
+  display: flex;
+  align-items: center;
+  padding: 14px 20px;
+  gap: 16px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  color: #5f6368;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.sidebarItem:hover {
+  background: #f8f9fa;
+  color: #1a73e8;
+  transform: translateX(5px);
+}
+
+.sidebarItem:hover::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: #1a73e8;
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  font-size: 20px;
+  color: #5f6368;
+}
+
+.label {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.sidebarItemActive {
+  display: flex;
+  align-items: center;
+  padding: 14px 20px;
+  gap: 16px;
+  cursor: pointer;
+  border-radius: 12px;
+  position: relative;
+  background: #e8f0fe;
+  color: #1a73e8;
+  font-weight: 600;
+}
+
+.sidebarItemActive::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: #1a73e8;
+  border-radius: 0 3px 3px 0;
+}
+
+.sidebarItemActive .iconContainer {
+  color: #1a73e8;
+}
+
+.sidebarItemActive .label {
+  color: #1a73e8;
+}
+
+.activeIndicator {
+  position: absolute;
+  right: 15px;
+  width: 8px;
+  height: 8px;
+  background-color: #1a73e8;
+  border-radius: 50%;
+}
+
+/* Collapsed state styles */
+.wrapperClose .label,
+.wrapperClose .activeIndicator {
+  opacity: 0;
+  width: 0;
+  transition: opacity 0.2s ease, width 0.3s ease;
+}
+
+.wrapperClose .sidebarItem {
+  justify-content: center;
+  padding: 14px 0;
+}
+
+.wrapperClose .sidebarItem:hover {
+  transform: scale(1.05);
+}
+
+/* Scrollbar styling */
+.wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.wrapper::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.wrapper::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.sidebarContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.footer {
+  margin-top: auto;
+  padding: 12px;
+  text-align: center;
+  opacity: 0.7;
+  font-size: 12px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.copyright {
+  white-space: nowrap;
+}
+
+@keyframes subtlePulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(26, 115, 232, 0.1);
+  }
+
+  70% {
+    box-shadow: 0 0 0 8px rgba(26, 115, 232, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(26, 115, 232, 0);
+  }
+}
+
+.sidebarItemActive {
+  animation: subtlePulse 2s infinite;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+
+  .wrapper,
+  .wrapperClose {
+    height: 100vh;
+    min-height: 100vh;
+    /* padding: 20px 0; */
+    border-right: none;
+    box-shadow: 5px 0 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  /* Default: sidebar hilang (slide ke kiri) */
+  .wrapper {
+    transform: translateX(-100%);
+  }
+
+  .wrapperClose {
+    transform: translateX(-100%);
+  }
+
+  /* Kalau showSidebar true → geser masuk */
+  .wrapper.show,
+  .wrapperClose.show {
+    transform: translateX(0);
+  }
+}
