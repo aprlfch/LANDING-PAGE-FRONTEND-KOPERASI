@@ -36,7 +36,7 @@ const LandingPage = () => {
         <Services />
         <Pengawas />
         <SimulasiCalculator />
-        <Testimonials />
+        {/* <Testimonials /> */}
         <NewsSection />
       </main>
       <Footer />
