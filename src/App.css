@@ -428,7 +428,7 @@
 .hero__image-wrapper img {
   width: 100%;
   height: auto;
-  aspect-ratio: 4 / 3;
+  /* aspect-ratio: 4 / 3; */
   /* Memastikan proporsi gambar tetap rapi */
   object-fit: cover;
   display: block;
@@ -1064,6 +1064,51 @@
   font-size: 0.95rem;
   text-align: center;
   border: 1px solid rgba(178, 58, 47, 0.2);
+}
+
+/* ============ BERITA: HORIZONTAL SCROLL ============ */
+.berita__grid {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  /* Mencegah kartu turun ke baris bawah */
+  overflow-x: auto !important;
+  /* Mengaktifkan scroll ke samping */
+  overflow-y: hidden !important;
+  gap: 24px !important;
+  padding: 4px 4px 20px 4px !important;
+  /* Padding bawah untuk memberi ruang scrollbar */
+  scroll-snap-type: x mandatory;
+  /* Membuat scroll terasa "menempel" pas di tiap kartu */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Mengatur lebar tiap kartu agar tidak gepeng saat di-scroll */
+.berita-card {
+  flex: 0 0 360px !important;
+  /* Lebar konsisten 360px per kartu */
+  max-width: 360px !important;
+  scroll-snap-align: start;
+}
+
+/* Mempercantik tampilan Scrollbar horizontal agar selaras dengan tema web */
+.berita__grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.berita__grid::-webkit-scrollbar-track {
+  background: var(--sage, #e7eee6);
+  border-radius: 8px;
+}
+
+.berita__grid::-webkit-scrollbar-thumb {
+  background: var(--gold, #c9a227);
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.berita__grid::-webkit-scrollbar-thumb:hover {
+  background: var(--forest, #0f3d3e);
 }
 
 @media (max-width: 900px) {
