@@ -35,20 +35,19 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
-          <div className="navbar__actions navbar__actions--mobile">
-            <Link to="/login" className="btn btn-outline">
-              Masuk
-            </Link>
+
+          {/* <Link to="/login" className="navbar__login-link" onClick={() => setOpen(false)}>
+            Masuk Admin
+          </Link> */}
+
+          {/* <div className="navbar__actions navbar__actions--mobile">
             <a href="#daftar" className="btn btn-primary">Daftar Anggota</a>
-          </div>
+          </div> */}
         </nav>
 
-        <div className="navbar__actions">
-          <Link to="/login" className="btn btn-outline">
-            Masuk
-          </Link>
+        {/* <div className="navbar__actions">
           <a href="#daftar" className="btn btn-primary">Daftar Anggota</a>
-        </div>
+        </div> */}
 
         <button
           className="navbar__burger"
