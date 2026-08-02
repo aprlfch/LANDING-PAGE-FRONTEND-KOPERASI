@@ -1804,6 +1804,53 @@
   border-bottom: 3px solid var(--gold);
 }
 
+.struktur-group {
+  margin-bottom: 24px;
+}
+
+.struktur-title {
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+
+  margin-bottom: 64px;
+
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  text-align: center;
+  color: var(--forest-deep);
+}
+
+/* Garis dekoratif kecil di bawah judul */
+.struktur-title::after {
+  content: "";
+
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+
+  width: 40px;
+  height: 3px;
+
+  background-color: var(--gold);
+  border-radius: 2px;
+
+  transform: translateX(-50%);
+}
+
+.struktur-divider {
+  width: 70%;
+  height: 1px;
+
+  margin: 80px auto;
+
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(15, 61, 62, 0.2),
+      transparent);
+}
+
 /* --- Mobile Responsiveness --- */
 @media (max-width: 900px) {
   .pengawas__grid {
