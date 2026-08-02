@@ -18,6 +18,7 @@ import NewsDetail from './components/NewsDetail.jsx';
 import MasterContent from './pages/Content/MasterContent/MasterContent.jsx';
 import CreateContent from './pages/Content/CreateContent/CreateContent.jsx';
 import Pengawas from './components/Pengawas.jsx';
+import StrukturOrganisasi from './components/StrukturOrganisasi.jsx';
 
 
 // Lazy pages
@@ -34,7 +35,8 @@ const LandingPage = () => {
         <Hero />
         <TrustStats />
         <Services />
-        <Pengawas />
+        <StrukturOrganisasi />
+        {/* <Pengawas /> */}
         <SimulasiCalculator />
         {/* <Testimonials /> */}
         <NewsSection />
